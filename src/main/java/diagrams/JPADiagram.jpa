@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings ptype="MONOLITH" ppkg="app" epkg="test" v="1.5.4" rws="_154750631152583" Pws="_154750631152583" cws="_154750631152583" persistenceUnitName="JPATester_mvn_PU" sm="false" xs="false" id="_14845797840591" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <mapped-superclass compositePrimaryKeyClass="PersonPK" abs="true" class="Person" v="true" jbn="false" xre="false" m="false" rootElement="_14845797840591" id="_148457978415514">
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="name" id="_148457978416020">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="int" v="true" xvt="" name="age" id="_148457978416022">
+                <xwm/>
+                <xm/>
+            </basic>
+            <embedded connected-class-id="_148457978415916" v="true" xvt="" name="address" id="_148457978415515">
+                <xwm/>
+                <xm/>
+            </embedded>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_148457978416021">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+    </mapped-superclass>
+    <entity compositePrimaryKeyClass="DepartmentPK" abs="false" class="Department" v="true" jbn="false" xre="false" m="false" rootElement="_14845797840591" id="_14845797841022">
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="name" id="_14845797841114">
+                <xwm/>
+                <xm/>
+            </basic>
+            <one-to-many orp="false" own="false" collection-type="java.util.Collection" connected-entity-id="_148457978799623" connected-attribute-id="_148457978799625" v="true" xvt="" name="employeeList" id="_14845797841083">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_14845797841115">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+    </entity>
+    <entity compositePrimaryKeyClass="ProductOrderPK" abs="false" class="ProductOrder" v="true" jbn="false" xre="false" m="false" rootElement="_14845797840591" id="_14845797841316">
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="name" id="_14845797841317">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="type" id="_14845797841319">
+                <xwm/>
+                <xm/>
+            </basic>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_14845797841318">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+    </entity>
+    <entity compositePrimaryKeyClass="CustomerPK" abs="false" class="Customer" superclassId="_148457978415514" v="true" jbn="false" xre="false" m="false" rootElement="_14845797840591" id="_148457978415410">
+        <attributes>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_148457978799623" v="true" xvt="" name="primaryContact" id="_148457978415411">
+                <xwm/>
+                <xm/>
+            </many-to-one>
+            <one-to-many orp="false" own="true" collection-type="java.util.Collection" connected-entity-id="_14845797841316" v="true" xvt="" name="productOrders" id="_148457978415413">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+        </attributes>
+    </entity>
+    <entity compositePrimaryKeyClass="EmployeePK" abs="false" class="Employee" superclassId="_148457978415514" v="true" jbn="false" xre="false" m="false" rootElement="_14845797840591" id="_148457978799623">
+        <attributes>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_14845797841022" connected-attribute-id="_14845797841083" v="true" xvt="" name="department" id="_148457978799625">
+                <xwm/>
+                <xm/>
+            </many-to-one>
+        </attributes>
+    </entity>
+    <embeddable abs="false" class="Address" v="true" jbn="false" xre="false" m="false" rootElement="_14845797840591" id="_148457978415916">
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="city" id="_148457978415917">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="street" id="_148457978415918">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="state" id="_148457978415919">
+                <xwm/>
+                <xm/>
+            </basic>
+        </attributes>
+    </embeddable>
+    <c/>
+    <wsl>
+        <ws n="Main" id="_154750631152583">
+            <i ref="_148457978799623" x="221" y="205"/>
+            <i ref="_148457978415514" x="295" y="21"/>
+            <i ref="_148457978415410" x="398" y="325"/>
+            <i ref="_14845797841316" x="614" y="408"/>
+            <i ref="_148457978415916" x="627" y="127"/>
+            <i ref="_14845797841022" x="26" y="401"/>
+        </ws>
+    </wsl>
+</entity-mappings>

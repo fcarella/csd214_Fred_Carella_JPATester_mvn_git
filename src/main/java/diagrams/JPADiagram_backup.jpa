@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings persistenceUnitName="JPATester_mvn_PU" jaxb-support="false" id="_14208164010841" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:ns4="http://nbmodeler.java.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:package>test</jpa:package>
+    <jpa:mapped-superclass class="Person" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1420816415367">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_14208164761029">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+            <jpa:basic name="name" attribute-type="String" visibile="true" id="_142081655477010">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic name="age" attribute-type="int" visibile="true" id="_142081655826811">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:embedded name="address" connected-class-id="_1420819170800" attribute-type="Address" visibile="true" id="_142081927826521"/>
+        </jpa:attributes>
+    </jpa:mapped-superclass>
+    <jpa:entity class="Employee" jaxb-root-element="false" static-metamodel="false" superclassId="_1420816415367" visibile="true" minimized="false" id="_1420816410481">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_14208164486838">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+            <jpa:many-to-one name="department" target-entity="Department" optional="true" primaryKey="false" connected-entity-id="_1420819826808" connected-attribute-id="_142081989010931" visibile="true" id="_142081989010930">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Customer" jaxb-root-element="false" static-metamodel="false" superclassId="_1420816415367" visibile="true" minimized="false" id="_1420816412553">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_14208164351667">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+            <jpa:many-to-one name="primaryContact" target-entity="Employee" optional="true" primaryKey="false" connected-entity-id="_1420816410481" visibile="true" id="_142081997662832">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="productOrders" target-entity="ProductOrder" collection-type="java.util.Collection" connected-entity-id="_1420819375935" visibile="true" id="_142081947323326">
+                <jpa:join-table/>
+            </jpa:one-to-many>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ProductOrder" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1420819375935">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_142081939007023">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:basic name="name" attribute-type="String" visibile="true" id="_142081940225924">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic name="type" attribute-type="String" visibile="true" id="_142081943554025">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Department" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1420819826808">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_142081983513328">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:basic name="name" attribute-type="String" visibile="true" id="_142081984456329">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:one-to-many name="employeeList" target-entity="Employee" mapped-by="department" collection-type="java.util.Collection" connected-entity-id="_1420816410481" connected-attribute-id="_142081989010930" visibile="true" id="_142081989010931"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:embeddable class="Address" static-metamodel="false" visibile="true" minimized="false" id="_1420819170800">
+        <jpa:attributes>
+            <jpa:basic name="street" attribute-type="String" visibile="true" id="_142081917705318">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic name="city" attribute-type="String" visibile="true" id="_142081917761319">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic name="state" attribute-type="String" visibile="true" id="_142081917806120">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:embeddable>
+    <jpa:diagram id="_14208164010852">
+        <plane elementRef="_14208164010841" id="_14208164010853_p">
+            <shape elementRef="_1420816410481" id="_1420816410481_gui">
+                <Bounds x="258.0" y="422.0" width="151.0" height="92.0"/>
+            </shape>
+            <shape elementRef="_1420816412553" id="_1420816412553_gui">
+                <Bounds x="624.0" y="474.0" width="152.0" height="113.0"/>
+            </shape>
+            <shape elementRef="_1420816415367" id="_1420816415367_gui">
+                <Bounds x="468.0" y="92.0" width="137.0" height="147.0"/>
+            </shape>
+            <shape elementRef="_1420819170800" id="_1420819170800_gui">
+                <Bounds x="758.0" y="29.0" width="148.0" height="100.0"/>
+            </shape>
+            <shape elementRef="_1420819375935" id="_1420819375935_gui">
+                <Bounds x="850.0" y="291.0" width="174.0" height="113.0"/>
+            </shape>
+            <shape elementRef="_1420819826808" id="_1420819826808_gui">
+                <Bounds x="28.0" y="78.0" width="163.0" height="126.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>
