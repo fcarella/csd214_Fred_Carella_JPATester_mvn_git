@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CSD221_Fred_Carella_JPATester_mvn_git" />
+        <module name="csd214_Fred_Carella_JPATester_mvn_git" />
       </profile>
     </annotationProcessing>
   </component>
